@@ -1,77 +1,50 @@
 const express = require('express');
-const { celebrate, Segments, Joi } = require('celebrate');
+const { celebrate } = require('celebrate');
 
 const Ong = require('./controllers/Ong');
 const Incident = require('./controllers/Incident');
 const Profile = require('./controllers/Profile');
 const Session = require('./controllers/Session');
 
+const { createSchema: createOngSchema } = require('./validators/ongs');
+const { schema: authenticationSchema } = require('./validators/authentication');
+const { schema: sessionSchema } = require('./validators/session');
+const {
+  getQuerySchema: getQuerySchemaIncident,
+  createSchema: createIncidentSchema,
+  deleteSchema: deleteIncidentSchema,
+} = require('./validators/incident');
+
 const routes = express.Router();
 
-routes.post(
-  '/sessions',
-  celebrate({
-    [Segments.BODY]: Joi.object().keys({
-      id: Joi.string().required(),
-    }),
-  }),
-  Session.create
-);
+routes.post('/sessions', celebrate({ body: sessionSchema }), Session.create);
 
 routes.get('/ongs', Ong.index);
-routes.post(
-  '/ongs',
-  celebrate({
-    [Segments.BODY]: Joi.object().keys({
-      name: Joi.string().required(),
-      email: Joi.string().required().email(),
-      whatsapp: Joi.number().required().min(10).max(11),
-      city: Joi.string().required(),
-      uf: Joi.string().required().length(2),
-    }),
-  }),
-  Ong.create
-);
+routes.post('/ongs', celebrate({ body: createOngSchema }), Ong.create);
 
 routes.get(
   '/profile',
-  celebrate({
-    [Segments.HEADERS]: Joi.object({
-      authorization: Joi.string().required(),
-    }).unknown(),
-  }),
+  celebrate({ headers: authenticationSchema }),
   Profile.index
 );
 
 routes.get(
   '/incidents',
-  celebrate({
-    [Segments.QUERY]: Joi.object().keys({
-      page: Joi.number(),
-    }),
-  }),
+  celebrate({ query: getQuerySchemaIncident }),
   Incident.index
 );
 routes.post(
   '/incidents',
   celebrate({
-    [Segments.HEADERS]: Joi.object({
-      authorization: Joi.string().required(),
-    }).unknown(),
-    [Segments.BODY]: Joi.object().keys({
-      title: Joi.string().required(),
-      description: Joi.string().required(),
-      value: Joi.number().required(),
-    }),
+    headers: authenticationSchema,
+    body: createIncidentSchema,
   }),
   Incident.create
 );
 routes.delete(
   '/incidents/:id',
   celebrate({
-    [Segments.PARAMS]: Joi.object().keys({
-      id: Joi.number().required(),
-    }),
+    params: deleteIncidentSchema,
   }),
   Incident.delete
 );
