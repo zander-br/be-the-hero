@@ -40,15 +40,21 @@ Screenshots of the application both web and mobile.
 
 > Screenshot splash screen (Mobile)
 
-![Crate incident](screenshot/splash.jpeg)
+<p align="center">
+  <img src="screenshot/splash.jpeg" alt="Splash screen" height="650px" />
+</p>
 
 > Screenshot list incidents (Mobile)
 
-![List incidents](screenshot/list-mobile.jpeg)
+<p align="center">
+  <img src="screenshot/list-mobile.jpeg" alt="List incidents" height="650px" />
+</p>
 
 > Screenshot details incident (Mobile)
 
-![Detail incident](screenshot/detail.jpeg)
+<p align="center">
+  <img src="screenshot/detail.jpeg" alt="Detail incident" height="650px" />
+</p>
 
 ## Technology :construction:
 
