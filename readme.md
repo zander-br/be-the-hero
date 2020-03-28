@@ -58,7 +58,19 @@ Screenshots of the application both web and mobile.
 
 ## Technology :construction:
 
-### Backend :construction:
+The technologies used to create the applications were divided into three sections, to facilitate the explanation of each one. We will cover the most representative technologies for each project.
+
+### Backend
+
+The application backend was developed in [node.js](https://nodejs.org)  using [yarn](https://yarnpkg.com/) to install packages.
+
+The entire application was developed using the [Airbnb style guid](https://github.com/airbnb/javascript) using [ESLint](https://eslint.org/) as a linter tool.
+
+The API was created using the [express](https://expressjs.com) framework using MVC architecture concepts. The backend validations were done using the [celebrate](https://github.com/arb/celebrate) library, which has a very good integration with express.
+
+Because it is an application for study only, the [SQLite](https://www.sqlite.org) database was used and for the connection SQL query builder [Knex.js](http://knexjs.org/) was used, which provides a nice interface with the database. To allow our frontend to access the server, it was necessary to use [cors](https://github.com/expressjs/cors).
+
+Finally, some unit tests and integration tests were created using [Jest](https://jestjs.io/) test suite.
 
 ### Frontend :construction:
 
