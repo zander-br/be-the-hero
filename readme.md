@@ -13,7 +13,7 @@ Application developed following the week Omnistack 11 da [Rocketseat](https://ro
 
 ## Table of Contents
 
-- [Screenshot](#screenshot)
+- [Screenshots](#screenshots)
 - [Technology](#technology)
   - [Backend](#backend)
   - [Frontend](#frontend)
@@ -22,7 +22,33 @@ Application developed following the week Omnistack 11 da [Rocketseat](https://ro
 - [Contribute](contribute)
 - [License](license)
 
-## Screenshot :construction:
+## Screenshots
+
+Screenshots of the application both web and mobile.
+
+> Screenshot login (Web)
+
+![Logon](screenshot/login.png)
+
+> Screenshot list incidents (Web)
+
+![List Web](screenshot/list-web.png)
+
+> Screenshot create incident (Web)
+
+![Crate incident](screenshot/create.png)
+
+> Screenshot splash screen (Mobile)
+
+![Crate incident](screenshot/splash.jpeg)
+
+> Screenshot list incidents (Mobile)
+
+![List incidents](screenshot/list-mobile.jpeg)
+
+> Screenshot details incident (Mobile)
+
+![Detail incident](screenshot/detail.jpeg)
 
 ## Technology :construction:
 
